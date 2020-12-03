@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {padding: 0; margin: 0; box-sizing: border-box;}
+        body {Width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+        span {display: flex; flex-direction: row; margin: 5px; align-items: center; justify-content: center;}
+        p {margin-right: 5px;}
+        button {padding: 5px; background-color: transparent; border: 1px solid black; cursor: pointer;}
+        button:hover {transform: scale(1.1);}
+    </style>
+</head>
+<body>
+
+    <span><p>For at se arrayet</p><button type="button" id="see_array">See array</button></span>
+    <span><p>konverterer arrayet til en string</p><button type="button" id="to_string">To string</button></span>
+    <span><p>konverterer arrayet til en string og separere stringen med et nyt tegn</p><button type="button" id="join">Join</button></span>
+    <span><p>Fjerner det sidste element i arrayet</p><button type="button" id="pop">Pop</button></span>
+    <span><p>Indsætter et nyt element tilsidst i arrayet</p><button type="button" id="push">Push</button></span>
+    <span><p>Fjerner det første element i arrayet</p><button type="button" id="shift">Shift</button></span>
+    <span><p>Indsætter et nyt element først i arrayet</p><button type="button" id="unshift">Unshift</button></span>
+    <span><p>Indsætter to eller mere elementer inde i arrayet</p><button type="button" id="splice">Splice</button></span>
+    <span><p>Udskærer et stykke af arrayet</p><button type="button" id="slice">Slice</button></span>
+    
+    <script>
+        //dette er arrayet som jeg arbejder med.
+        let car_array = ['DATSUN', 'MERCEDES', 'VOLVO', 'BMW', 'FIAT', 'TOYOTA', 'CITROEN', 'TESLA', 'OPEL'];
+
+        //Denne knap viser arrayet af biler
+        let btn_seeArray = document.querySelector('#see_array');
+            btn_seeArray.addEventListener('click', () => {
+                console.log(car_array);
+            });
+
+        //Denne knap laver arrayet til en string
+        let btn_toString = document.querySelector('#to_string');
+            btn_toString.addEventListener('click', () => {
+                let string = car_array.toString();
+                    console.log(string);
+            });
+
+        //Denne knap laver arrayet til en string og udskifter , med et specielt valgt tegn
+        let btn_join = document.querySelector('#join');
+            btn_join.addEventListener('click', () => {
+                let string = car_array.join(' - ');
+                    console.log(string);
+            });
+
+        //Denne knap fjerner det sidste element i arrayet
+        let btn_pop = document.querySelector('#pop');
+            btn_pop.addEventListener('click', () => {
+                let poped_car = car_array.pop();
+                    console.log('Fjerner nu ' + poped_car + ' fra car_array');
+            });
+
+        //Denne knap indsætter et ellement tilsidst i arrayet, dette element kommer random fra et nyt array
+        let btn_push = document.querySelector('#push');
+            btn_push.addEventListener('click', () => {
+                let random_car = ['FERRARI', 'MCLAREN', 'PORSCHE', 'MASERATI', 'LAMBORGHINI', 'ASTON MARTIN', 'BUGATTI', 'BENTLEY'];
+                let random_number = Math.floor(Math.random() * random_car.length);
+                let pushed_car = car_array.push(random_car[random_number]);
+                    console.log('Tilføjer nu ' + random_car[random_number] + ' til car_array');
+            });
+
+        //Denne knap fjerner det første element i arrayet
+        let btn_shift = document.querySelector('#shift');
+            btn_shift.addEventListener('click', () => {
+                let shifted_car = car_array.shift();
+                    console.log('Fjerner nu ' + shifted_car + ' fra car_array');
+            });
+
+        //Denne knap indsætter et element først i arrayet, dette element kommer random fra et nyt array
+        let btn_unshift = document.querySelector('#unshift');
+            btn_unshift.addEventListener('click', () => {
+                let random_car = ['FERRARI', 'MCLAREN', 'PORSCHE', 'MASERATI', 'LAMBORGHINI', 'ASTON MARTIN', 'BUGATTI', 'BENTLEY'];
+                let random_number = Math.floor(Math.random() * random_car.length);
+                let unshifted_car = car_array.unshift(random_car[random_number]);
+                    console.log('Tilføjer nu ' + random_car[random_number] + ' til car_array');
+            });
+
+        //Denne knap indæstter to nye elementer inde i arrayet
+        let btn_splice = document.querySelector('#splice');
+            btn_splice.addEventListener('click', () => {
+                car_array.splice(2, 0, 'PEUGEOT', 'SUSUKI');
+                    console.log(car_array);
+            });
+
+        //Denne knap slicer arrayet og retunerer det nye array
+        let btn_slice = document.querySelector('#slice');
+            btn_slice.addEventListener('click', () => {
+                let random_number = Math.floor(Math.random() * car_array.length);
+                let winner_Car = car_array.slice(random_number, (random_number + 1));
+                console.log(winner_Car);
+            });
+    </script>
+</body>
+</html>
