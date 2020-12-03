@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {padding: 0; margin: 0; box-sizing: none;}
+        body {height: 100vh; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+        span {margin: 5px 0;}
+        button {padding: 5px; margin: 0 5px;}
+    </style>
+</head>
+<body>
+    <span>
+        <button type="button" id="btn_incAlfa">a → z</button>
+        <button type="button" id="btn_decAlfa">z → a</button>
+        <button type="button" id="btn_incNum">1 → 100</button>
+        <button type="button" id="btn_decNum">100 → 1</button>
+        <button type="button" id="btn_random">Tilfældig</button>
+    </span>
+    <span>
+        <button type="button" id="btn_name">Navn</button>
+        <button type="button" id="btn_year">Årgang</button>
+        <button type="button" id="btn_doors">Døre</button>
+        <button type="button" id="btn_seats">Personer</button>
+        <button type="button" id="btn_price">Pris</button>
+    </span>
+
+    <script>
+        let car_array = ['DATSUN', 'MERCEDES', 'VOLVO', 'BMW', 'FIAT', 'TOYOTA', 'CITROEN', 'TESLA', 'OPEL'];
+
+        //stigende alfabetisk
+            let btn_incAlfa = document.querySelector('#btn_incAlfa');
+                btn_incAlfa.addEventListener('click', () => {
+                    console.log(car_array.sort());
+                });
+
+        //Faldende alfabetisk
+            let btn_decAlfa = document.querySelector('#btn_decAlfa');
+                btn_decAlfa.addEventListener('click', () => {
+                        console.log(car_array.sort().reverse());
+                    });
+
+        //Sigende numerisk
+            let btn_incNum = document.querySelector('#btn_incNum');
+                btn_incNum.addEventListener('click', () => {
+                    console.log(car_array.sort( (a, b) => {
+                        return a.length - b.length;
+                    }))
+                });
+
+        //Faldende numerisk
+            let btn_decNum = document.querySelector('#btn_decNum');
+                btn_decNum.addEventListener('click', () => {
+                    console.log(car_array.sort( (a, b) => {
+                        return b.length - a.length;
+                    }));
+                });
+
+        //Random
+            let btn_random = document.querySelector('#btn_random');
+                btn_random.addEventListener('click', () => {
+                    console.log(car_array.sort((a, b) => {
+                        return a.length * Math.random() - b.length * Math.random();
+                    }));
+                });
+
+        //Objects
+            let new_car_array = [
+                {brand: 'MERCEDES', year: 2010, doors: 5, seats: 5, price: 105000},
+                {brand: 'VOLVO', year: 2016, doors: 5, seats: 7, price: 405000},
+                {brand: 'BMW', year: 2014, doors: 3, seats: 2, price: 375000},
+                {brand: 'FIAT', year: 2011, doors: 3, seats: 5, price: 60000},
+                {brand: 'TOYOTA', year: 2016, doors: 7, seats: 9, price: 450000},
+                {brand: 'CITROEN', year: 1999, doors: 5, seats: 5, price: 12000},
+                {brand: 'TESLA', year: 2019, doors: 5, seats: 5, price: 675000},
+                {brand: 'OPEL', year: 2010, doors: 3, seats: 5, price: 45000}
+            ];
+
+            //Name
+            let btn_name = document.querySelector('#btn_name');
+                btn_name.addEventListener('click', () => {
+                    console.log(new_car_array.sort((a, b) => {
+                        let brandA = a.brand;
+                        let brandB = b.brand;
+
+                        if (brandA > brandB) {
+                            return 1;
+                        } else if (brandA < brandB) {
+                            return -1;
+                        }
+
+                        return 0;
+                    }));
+                });
+
+            //Year
+            let btn_year = document.querySelector('#btn_year');
+                btn_year.addEventListener('click', () => {
+                    console.log(new_car_array.sort((a, b) => {
+                        return b.year - a.year;
+                    }));
+                });
+
+            //Doors
+            let btn_doors = document.querySelector('#btn_doors');
+                btn_doors.addEventListener('click', () => {
+                    console.log(new_car_array.sort((a, b) => {
+                        return a.doors - b.doors;
+                    }));
+                });
+
+            //Seats
+            let btn_seats = document.querySelector('#btn_seats');
+                btn_seats.addEventListener('click', () => {
+                    console.log(new_car_array.sort((a, b) => {
+                        return b.seats - a.seats;
+                    }));
+                });
+
+            //Price
+            let btn_price = document.querySelector('#btn_price');
+                btn_price.addEventListener('click', () => {
+                    console.log(new_car_array.sort((a, b) => {
+                        return a.price - b.price;
+                    }));
+                });
+
+    </script>
+</body>
+</html>
