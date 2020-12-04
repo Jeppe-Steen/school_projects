@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //øvelse 1
+        let array = [2, 5, 100];
+        let newArray = array.map((val, index, arr) => {
+            return val * 2;
+        });
+        console.log(newArray);
+
+        //øvelse 2
+        array = [2, 5, 100];
+        newArray = array.map((val, index, arr) => {
+            return `${val}`;
+        })
+        console.log(newArray);
+
+        //øvelse 3
+        array = ["lone", "Allan", "Hello woRld", "tim22"];
+        newArray = array.map((val, index, arr) => {
+            return val.toUpperCase();
+        });
+        console.log(newArray);
+
+        //øvelse 4
+        array = [
+            {name: "Mads Mikkelsen", age: 80},
+            {name: "Sofie Gråbøl", age: 2},
+            {name: "Sidse Babett Knudsen", age: 5},
+            {name: "Nikolaj Lie Kaas", age: 16},
+            {name: "Frank Hvam", age: 100}
+        ];
+        newArray = array.map((val, index, arr) => {
+            return val.name;
+        });
+        console.log(newArray);
+
+        //øvelse 5
+        array = [
+            {name: "Mads Mikkelsen", age: 80},
+            {name: "Sofie Gråbøl", age: 2},
+            {name: "Sidse Babett Knudsen", age: 5},
+            {name: "Nikolaj Lie Kaas", age: 16},
+            {name: "Frank Hvam", age: 100}
+        ];
+        newArray = array.map((val, index, arr) => {
+            return val.age >= 18 ? `${val.name} er gammel nok` : `${val.name} er IKKE gammel nok!!`;
+        });
+        console.log(newArray);
+
+        //øvelse 6
+        array = [
+            {name: "Mads Mikkelsen", age: 80},
+            {name: "Sofie Gråbøl", age: 2},
+            {name: "Sidse Babett Knudsen", age: 5},
+            {name: "Nikolaj Lie Kaas", age: 16},
+            {name: "Frank Hvam", age: 100}
+        ];
+        newArray = array.map((val, index, arr) => {
+           return `<h1>${val.name}</h1><h2>${val.age}</h2>`;
+        });
+        console.log(newArray);
+
+
+
+    </script>
+</body>
+</html>
