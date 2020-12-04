@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //øvelse 1
+        let array = [3, 6, 8, 2];
+        function fiveAndGreaterOnly(arr) {
+            return arr > 5; 
+        };
+        console.log(array.filter(fiveAndGreaterOnly));
+
+        //øvelse 2
+        array = [3, 6, 8, 2];
+        function evensOnly(arr) {
+            return arr % 2 === 0;
+        };
+        console.log(array.filter(evensOnly));
+
+        //øvelse 3
+        array = ["hund", "ulv", "kanin", "marsvin", "hamster", "kat"];
+        function fiveCharactersOrFewerOnly(arr) {
+            return arr.length <= 5;
+        };
+        console.log(array.filter(fiveCharactersOrFewerOnly));
+
+        //øvelse 4
+        array = [
+            {name: 'Mette', royal: false},
+            {name: 'Magrethe', royal: true},
+            {name: 'Jacob', royal: true},
+            {name: 'Mary', royal: true},
+            {name: 'Frederik', royal: true}
+        ];
+        function royalNames(arr) {
+            return arr.royal === true;
+        };
+        console.log(array.filter(royalNames));
+
+        //øvelse 5
+        array = [
+            { name: "Mette Frederiksen", age: 80 },
+            { name: "Jakob Elleman", age: 2 },
+            { name: "Søren Pape", age: 5 },
+            { name: "Pia Olsen Dyhr", age: 16 },
+            { name: "Pernille Skipper", age: 100 },
+            { name: "Kristian Thulesen Dahl", age: 54 }
+        ];
+        function ofAge(arr) {
+            return arr.age > 18;
+        };
+        console.log(array.filter(ofAge));
+
+        //øvelse 6
+        array = [
+            {name: 'Mercedes', model: 'E220', kml: 23.3, km: 138000, year: 2018, price: 439000},
+            {name: 'Honda', model: 'Accord', kml: 11.6, km: 96000, year: 2012, price: 199600},
+            {name: 'Seat', model: 'Tarraco', kml: 18.1, km: 15000, year: 2020, price: 424500},
+            {name: 'VW', model: 'Fox', kml: 14.8, km: 167000, year: 2005, price: 19990},
+            {name: 'Skoda', model: 'Scala', kml: 27.5, km: 8500, year: 2020, price: 244900},
+            {name: 'Jaguar', model: 'F-Type', kml: 11.9, km: 33000, year: 2017, price: 899900},
+            {name: 'Toyota', model: 'Avensis', kml: 16.7, km: 356000, year: 2005, price: 19900},
+            {name: 'VW', model: 'Golf', kml: 19.6, km: 35000, year: 2018, price: 209800},
+            {name: 'Mercedes', model: 'AMG', kml: 12.9, km: 21000, year: 2019, price: 679900}
+        ];
+
+            //6a
+            function filterByName(arr) {
+                return arr.name == 'Mercedes';
+            };
+            console.log(array.filter(filterByName));
+
+            //6b
+            function filterByMinPrice(arr) {
+                return arr.price > 200000;
+            };
+            console.log(array.filter(filterByMinPrice));
+
+            //6c
+            function filterByMinpriceMaxKml(arr) {
+                return arr.price > 200000 && arr.kml > 15;
+            };
+            console.log(array.filter(filterByMinpriceMaxKml));
+    </script>
+</body>
+</html>
